@@ -77,7 +77,7 @@ impl Beanstalkd {
         self.cmd(commands::release(id, priority, delay)).map(parse::body)
     }
 
-    pub fn touoch(&mut self, id: u64) -> BeanstalkdResult<String> {
+    pub fn touch(&mut self, id: u64) -> BeanstalkdResult<String> {
         self.cmd(commands::touch(id)).map(parse::body)
     }
 
