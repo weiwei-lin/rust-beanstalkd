@@ -77,6 +77,10 @@ impl Beanstalkd {
         self.cmd(commands::release(id, priority, delay)).map(parse::body)
     }
 
+    pub fn touoch(&mut self, id: u64) -> BeanstalkdResult<String> {
+        self.cmd(commands::touch(id)).map(parse::body)
+    }
+
     fn cmd(&mut self, message: String) -> BeanstalkdResult<Response> {
         let mut request = Request::new(&mut self.stream);
 
